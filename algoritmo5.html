@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo 5</title>
+    <script>
+        function Valorpi(){
+            if(!isNaN(document.getElementById("num").value) && (document.getElementById("num").value)>0){
+                var iteraciones= parseInt(document.getElementById("num").value);
+                var control= true;
+                var resultado= "π= 4(";
+                var pi=0.0;
+                for(let i=1; i<iteraciones*2; i+=2){
+                    if(control==true){
+                        if(i<iteraciones*2-1){
+                            resultado+=`1/${i} + `;
+                        } 
+                        else{
+                            resultado+=`1/${i}`;
+                        }
+                        pi -= 1.0/i;
+                        control = false;
+                    } 
+                    else{
+                        if(i<iteraciones*2-1){
+                            resultado += `1/${i} - `;
+                        } 
+                        else{
+                            resultado += `1/${i}`;
+                        }
+                        pi+=1.0/i;
+                        control=true;
+                    }
+                }
+                resultado += `) <br>π= ${-4 *pi}`;
+                document.getElementById("out").innerHTML=resultado;
+
+            }else{
+                document.getElementById("out").innerHTML=`Valor inválido. <br>El número de iteraciones debe ser mayor a 0.`;
+            }
+
+        }
+    </script>
+</head>
+<body bgcolor="#e6f7ff">
+    <p><a href="index.html">Regresar al menú</a></p>
+    Programa que calcula el valor de π a partir de la siguiente serie infinita (Metodo de Gottfried Leibniz):<br>
+    π = 4 (1/1 -1 /3 + 1/5 -1/7 + 1/9 – 1/11 +…………)<br><br>
+    Número de iteraciones: <input type="text" id="num" value="20"><br>
+    <input type="button" value="Calcular π" onclick="Valorpi()"><br>
+    <p id="out">π= </p>
+</body>
+</html>

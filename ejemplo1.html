@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo 6</title>
+    <script> src="./js/funciones.js"</script>
+</head>
+<body>
+    <a href="index.html"><button>Regresar al menu</button></a><br>
+    Capture e imprima un arreglo de 10 elementos de tipo entero. 
+    El arreglo se debe de imprimir de forma horizontal y vertical. 
+    Muestre el indice de cada elemento. 
+    La captura de elementos se debe cancelar al introducir el ultimo documento. 
+    Incluya un boton de reinicio.<br>
+
+    <form action="javascript:Capturar()">
+        <p style="display: inline;" id="arreglo">Capture el elemento [0]</p>
+        <input type="text" id="datos" onkeydown="if(event.key==='.'){event.preventDefault();}"required>
+        <input type="button" value="Capturar" id="boton" onclick="Capturar()">
+        <input type="button" value="Reiniciar" onclick="Reiniciar()">
+    </form>
+
+    <table border="1">
+        <tr id="renglon1"></tr>
+        <tr id="renglon2"></tr>
+    </table><br>
+    <table border="1" id="tabla_vertical">
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo 1</title>
+    <script>
+        function multiplos3() {
+            // palabras reservadas: var let const
+            if (!isNaN(document.getElementById("num1").value) && !isNaN(document.getElementById("num2").value)) {
+                // caracteres/signos de agrupacion: {}[]()``''""\\
+                var a = parseInt(document.getElementById("num1").value);
+                var b = parseInt(document.getElementById("num2").value);
+                var multiplos = "";
+                // alert(`${a} y el otro valor es ${b}`); No se recomienda utilizar alert. Interpolacion
+                for (let i = a; i <= b; i++) {
+                    if (i % 3 == 0) {
+                        multiplos += `${i} <br>`;
+                    }
+                }
+                if (a != b)
+                for (let i = a; i >= b; i--) {
+                    if (i % 3 == 0) {
+                        multiplos += `${i} <br>`;
+                    }
+                }
+                document.getElementById("out").innerHTML=`Resultado:<br> Los multiplos entre ${a} y ${b} son: ${multiplos}`;
+            } else {
+                document.getElementById("out").innerHTML=`Existe un error en el tipo de datos ingresados`;
+            }
+        }
+    </script>
+</head>
+<body bgcolor="#DDEEFA">
+    <a href="index.html"><button>Regresar al menu</button></a><br>
+    <h1>Programa 1: Multiplos de 3</h1>
+    Encontrar e imprimir todos los numeros comprendidos entre dos enteros que son multiplos de 3.<br>
+    dato1: <input type="text" value="10" id="num1"><br>
+    dato2: <input type="text" value="20" id="num2"><br>
+    <input type="button" value="Encontrar los multiplos de 3" onclick="multiplos3()"><br>
+    <p id="out">Resultado:</p>
+</body>
+</html>
